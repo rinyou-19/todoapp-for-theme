@@ -25,6 +25,24 @@
  - フロントエンド: React, TypeScript, CSS Modules
  - DB: PostgreSQL
 
+4.開発環境
+ - エディター:Visual Studio Code
+  
+5.作業メモ
+ - .Netのバージョンを確認する、『dotnet --version』
+ - Node.jsのバージョン確認、『node -v』
+ - 14だったので18にアップグレードして、もう1回上のコマンドでバージョン確認
+ - テンプレートプロジェクトの作成、『dotnet new react -n todo-app』
+ - 不要ファイルを削除
+ - 型定義ファイルのインストール、『npm install -D @types/react @types/react-dom』
+ - .tsの設定ファイル作成、『.\node_modules\.bin\tsc --init』
+ - PostgreSQL 15.4をインストール
+ - モデルの型定義について、DateTime型のまま扱ていくかは要検討
+ - 必要なパッケージをインストール、『dotnet tool install --global dotnet-ef』、  
+   『dotnet add package Microsoft.EntityFrameworkCore.Design』、『dotnet add package Microsoft.EntityFrameworkCore.Tools』  
+   『dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL』
+ - マイグレーション実行、『』
+   
 99.保留/調査事項
  - Azureで使用するサービスについて
  - システムの全体構成図について
