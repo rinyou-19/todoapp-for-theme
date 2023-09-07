@@ -1,0 +1,33 @@
+/* ヘッダーのタイトル */
+.header-title {
+    text-align: center;
+}
+
+/* 編集エリア */
+.edit-area {
+    border: solid 1px #aaa;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    width: 60%;
+    height: 160px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* 各入力項目のラベル */
+.input-label {
+    margin: 0 5px;
+}
+
+/* 内容 */
+.contents-style {
+    width: 150px;
+    height: 150px;
+}
+
+/* ボタン */
+.button-style {
+    margin-left: 10px;
+    background-color: azure;
+}

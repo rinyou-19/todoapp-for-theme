@@ -1,0 +1,9 @@
+POST https://localhost:44433/api/todo HTTP/1.1
+content-type: application/json
+
+{
+    "toDoid": 1,
+    "content": "プログラミング",
+    "expectedEndDate": "2023-09-07",
+    "endDate": "2023-09-07"
+}

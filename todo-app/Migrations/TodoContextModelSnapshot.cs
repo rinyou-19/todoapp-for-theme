@@ -34,7 +34,10 @@ namespace todo_app.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("EndOfDate")
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("ExpectedEndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("TodoId");

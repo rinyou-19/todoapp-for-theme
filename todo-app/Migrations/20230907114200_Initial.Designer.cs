@@ -12,8 +12,8 @@ using todo_app.Models;
 namespace todo_app.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20230906115910_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230907114200_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,10 @@ namespace todo_app.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("EndOfDate")
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("ExpectedEndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("TodoId");

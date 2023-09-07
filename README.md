@@ -42,6 +42,8 @@
    『dotnet add package Microsoft.EntityFrameworkCore.Design』、『dotnet add package Microsoft.EntityFrameworkCore.Tools』  
    『dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL』
  - マイグレーション実行、『』
+ - styled componentsをインストール、『npm install styled-components』
+ - axiosをインストール、『npm install axios』
    
 99.保留/調査事項
  - Azureで使用するサービスについて
