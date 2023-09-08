@@ -28,6 +28,11 @@ namespace todo_app.Controllers
             {
                 return NotFound();
             }
+            try {
+                var test = await _context.Todo.ToListAsync();
+            } catch(Exception e) {
+                var test2 = "あ";
+            }
             return await _context.Todo.ToListAsync();
         }
 

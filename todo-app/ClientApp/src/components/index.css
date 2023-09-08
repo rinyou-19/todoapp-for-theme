@@ -20,6 +20,11 @@
     margin: 0 5px;
 }
 
+/* TodoId */
+.todo-id {
+    width: 25px;
+}
+
 /* 内容 */
 .contents-style {
     width: 150px;
