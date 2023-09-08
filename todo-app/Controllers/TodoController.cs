@@ -24,10 +24,10 @@ namespace todo_app.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Todo>>> GetTodo()
         {
-          if (_context.Todo == null)
-          {
-              return NotFound();
-          }
+            if (_context.Todo == null)
+            {
+                return NotFound();
+            }
             return await _context.Todo.ToListAsync();
         }
 
@@ -35,10 +35,10 @@ namespace todo_app.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Todo>> GetTodo(int id)
         {
-          if (_context.Todo == null)
-          {
-              return NotFound();
-          }
+            if (_context.Todo == null)
+            {
+                return NotFound();
+            }
             var todo = await _context.Todo.FindAsync(id);
 
             if (todo == null)
@@ -85,12 +85,40 @@ namespace todo_app.Controllers
         [HttpPost]
         public async Task<ActionResult<Todo>> PostTodo(Todo todo)
         {
-          if (_context.Todo == null)
-          {
-              return Problem("Entity set 'TodoContext.Todo'  is null.");
-          }
-            _context.Todo.Add(todo);
-            await _context.SaveChangesAsync();
+            // DateTimeオブジェクトをPostgre登録用に変換をかける
+            // 終了予定日
+            DateTime expectedEndDate = todo.ExpectedEndDate;
+            DateTime expectedEndDateForEntry = expectedEndDate.ToUniversalTime();
+            // 終了日
+            DateTime endDate = todo.EndDate;
+            DateTime endDateForEntry = endDate.ToUniversalTime();
+            // データ登録用に変数に再格納
+            Todo todoForEntry = new Todo();
+            todoForEntry.Content = todo.Content;
+            todoForEntry.ExpectedEndDate = expectedEndDateForEntry;
+            todoForEntry.EndDate = endDateForEntry;
+            if (_context.Todo == null)
+            {
+                return Problem("Entity set 'TodoContext.Todo'  is null.");
+            }
+            _context.Todo.Add(todoForEntry);
+            //await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                var a = e;
+                if (true)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtAction("GetTodo", new { id = todo.TodoId }, todo);
         }

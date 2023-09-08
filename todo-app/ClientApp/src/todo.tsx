@@ -19,7 +19,6 @@ export const Todo = () => {
     const fetchTodoData = async () => {
       axios.get("/api/todo")
         .then((res: AxiosResponse<TodoType[]>) => {
-          console.log(res)
           // レスポンスを表示データとして設定
         })
         .catch((err: AxiosError<{ error: string }>) => {
